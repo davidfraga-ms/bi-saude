@@ -11,25 +11,20 @@ services:
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
-      # Assegura que o Render injete a porta correta
       - key: PORT
         value: "8000"
-      # Exemplo de variáveis adicionais (segredos devem ser definidos no painel)
-      # - key: SECRET_KEY
-      #   generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false  # Você preenche a chave pelo painel do Render
 
   # ==========================================
-  # FRONTEND (Static Site - Recomendado para Vite)
+  # FRONTEND (Static Site - Corrigido)
   # ==========================================
-  - type: web
+  - type: static
     name: bi-saude-frontend
-    runtime: static
-    plan: free
     rootDir: ./frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
     routes:
-      # Regra para suportar rotas de client-side routing (React/Vue/Svelte Router)
       - type: rewrite
         source: /*
         destination: /index.html
