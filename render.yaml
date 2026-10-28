@@ -14,13 +14,14 @@ services:
       - key: PORT
         value: "8000"
       - key: OPENAI_API_KEY
-        sync: false  # Você preenche a chave pelo painel do Render
+        sync: false
 
   # ==========================================
-  # FRONTEND (Static Site - Corrigido)
+  # FRONTEND (Static Site - Sintaxe correta)
   # ==========================================
-  - type: static
+  - type: web
     name: bi-saude-frontend
+    runtime: static
     rootDir: ./frontend
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
