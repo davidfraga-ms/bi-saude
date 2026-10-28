@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useStore } from './store/useStore';
 import { DashboardLayout } from './components/DashboardLayout';
-import { SubfuncoesFilter } from './components/SubfuncoesFilter';
+import { SubFuncoesFIlter } from './components/SubFuncoesFIlter';
 import { KpiCards } from './components/KpiCards';
 import { ChartsView } from './components/ChartsView';
 import { DrillDownTable } from './components/DrillDownTable';
@@ -103,7 +103,7 @@ export const App: React.FC = () => {
       {!isLoading && data && data.diretrizes.length > 0 && (
         <React.Fragment key={`${data.municipio_ibge}_${data.ano_exercicio}`}>
           {/* Barra de Filtros por DAF IA e Subfunções */}
-          <SubfuncoesFilter />
+          <SubFuncoesFIlter />
           {/* KPI Cards Reativos */}
           <KpiCards />
           {/* Gráficos Reativos */}
