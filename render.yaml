@@ -31,7 +31,6 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        value: "bi-saude-backend.onrender.com"
         fromService:
           type: web
           name: bi-saude-backend
