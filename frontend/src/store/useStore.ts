@@ -148,7 +148,7 @@ export const useStore = create<DashboardState>((set, get) => ({
     const timeoutId = setTimeout(() => activeConsultarController?.abort(), 90000);
 
     try {
-      const res = await fetch(`${API_BASE}/rag/${ibgeProcessado}?ano=${ano}`, {
+      const res = await fetch(`${API_BASE}/api/rag/${ibgeProcessado}?ano=${ano}`, {
         signal: activeConsultarController.signal
       });
       clearTimeout(timeoutId);
@@ -185,7 +185,7 @@ export const useStore = create<DashboardState>((set, get) => ({
     set({ isAnalyzingDaf: true, dafError: null });
 
     try {
-      const res = await fetch(`${API_BASE}/rag/${currentIbge}/analise-daf?ano=${selectedYear}`, {
+      const res = await fetch(`${API_BASE}/api/rag/${currentIbge}/analise-daf?ano=${selectedYear}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: activeDafController.signal,
