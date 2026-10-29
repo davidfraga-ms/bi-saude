@@ -36,7 +36,7 @@ interface DashboardState {
   getFilteredData: () => RagDashboardData | null;
 }
 
-const API_BASE = 'https://bi-saude-backend.onrender.com/api';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
 // Controladores de abort para evitar condição de corrida entre municípios
 let activeConsultarController: AbortController | null = null;
